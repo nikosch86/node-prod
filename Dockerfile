@@ -44,6 +44,8 @@ RUN buildDeps='xz-utils apt-transport-https ca-certificates' \
 
 RUN yarn global add nodemon
 
+RUN curl -sSf -o /bin/wait-for-it.sh https://raw.githubusercontent.com/nikosch86/wait-for-it/master/wait-for-it.sh && chmod +x /bin/wait-for-it.sh
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
