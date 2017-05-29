@@ -1,6 +1,6 @@
 FROM buildpack-deps:jessie-curl
 
-ENV REFRESHED_AT 2017-04-25
+ENV REFRESHED_AT 2017-05-29
 
 ENV NODE_VERSION 6.8.1
 ENV NODE_ENV=production
