@@ -1,9 +1,9 @@
-FROM buildpack-deps:jessie-curl
+FROM buildpack-deps:stretch-curl
 
-ENV REFRESHED_AT 2017-05-29
+ENV REFRESHED_AT 2017-12-04
 
-ENV NODE_VERSION 6.8.1
-ENV YARN_VERSION 0.24.5
+ENV NODE_VERSION 8.9.1
+ENV YARN_VERSION 1.3.2
 ENV NODE_ENV=production
 
 RUN groupadd -r node && useradd -r -g node node
@@ -33,10 +33,9 @@ RUN buildDeps='xz-utils apt-transport-https ca-certificates' \
 	&& apt-get install -y git \
   && curl -SLO "https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz" \
   && curl -SLO "https://nodejs.org/dist/v${NODE_VERSION}/SHASUMS256.txt.asc" \
-  && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \
-  && grep " node-v${NODE_VERSION}-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
+  && grep " node-v${NODE_VERSION}-linux-x64.tar.xz\$" SHASUMS256.txt.asc | shasum -a 256 -c - \
   && tar -xJf "node-v${NODE_VERSION}-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
-  && rm "node-v${NODE_VERSION}-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
+  && rm "node-v${NODE_VERSION}-linux-x64.tar.xz" SHASUMS256.txt.asc \
   && apt-get install -y yarn=${YARN_VERSION}-1 \
   && rm -rf /var/lib/apt/lists/* \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs \
