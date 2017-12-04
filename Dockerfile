@@ -1,4 +1,4 @@
-FROM buildpack-deps:stretch-curl
+FROM buildpack-deps:jessie-curl
 
 ENV REFRESHED_AT 2017-12-04
 
