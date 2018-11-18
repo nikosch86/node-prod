@@ -1,9 +1,9 @@
 FROM buildpack-deps:jessie-curl
 
-ENV REFRESHED_AT 2017-12-04
+ENV REFRESHED_AT 2018-11-18
 
-ENV NODE_VERSION 8.9.1
-ENV YARN_VERSION 1.3.2
+ENV NODE_VERSION 10.13.0
+ENV YARN_VERSION 1.12.3
 ENV NODE_ENV=production
 
 RUN groupadd -r node && useradd -r -g node node
