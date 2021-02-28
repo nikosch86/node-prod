@@ -1,9 +1,9 @@
-FROM buildpack-deps:jessie-curl
+FROM buildpack-deps:buster-curl
 
-ENV REFRESHED_AT 2018-11-18
+ENV REFRESHED_AT 2021-02-28
 
-ENV NODE_VERSION 10.13.0
-ENV YARN_VERSION 1.12.3
+ENV NODE_VERSION 14.16.0
+ENV YARN_VERSION 1.22.5
 ENV NODE_ENV=production
 
 RUN groupadd -r node && useradd -r -g node node
